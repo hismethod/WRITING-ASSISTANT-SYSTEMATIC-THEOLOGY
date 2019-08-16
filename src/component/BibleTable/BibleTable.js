@@ -1,6 +1,6 @@
 import React from 'react';
 import './BibleTable.scss';
-import data from './../asset/biblical_theology.json';
+import data from './../../asset/biblical_theology.json';
 
 function BibleTable() {
     return (

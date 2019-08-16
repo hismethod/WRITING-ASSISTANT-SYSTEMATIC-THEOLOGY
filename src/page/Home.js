@@ -1,12 +1,15 @@
 import React from 'react';
 import './Home.scss';
-import data from './../asset/biblical_theology.json';
-import BibleTable from '../component/BibleTable';
+import BibleTable from '../component/BibleTable/BibleTable';
+import Navbar from '../component/Navbar/Navbar';
+import BottomNavbar from '../component/BottomNavbar/BottomNavbar';
 
 const Home = () => {
     return (
         <div>
+            <Navbar />
             <BibleTable />
+            <BottomNavbar />
         </div>
     )
 }

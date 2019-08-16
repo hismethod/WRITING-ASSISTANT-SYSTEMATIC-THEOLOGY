@@ -1,0 +1,34 @@
+.navbar-wrapper {
+	background-color: white;
+}
+
+.navbar {
+	&.navbar-top {
+		width: 100%;
+		height: 50px;
+		position: fixed;
+		top: 0;
+		transition: all 0.2s;
+		background-color: white;
+
+		&.navbar--hidden {
+			top: -50px;
+		}
+	
+		.navbar__content {
+			display: flex;
+			font-family: 'Noto Sans KR';
+			font-size: 20px;
+			font-weight: 500;
+			height: 100%;
+			width: 100%;
+			margin: auto 0;
+			text-align: center;
+			justify-content: center;
+			align-items: center;
+			background-color: white;
+		}
+	}
+}
+
+

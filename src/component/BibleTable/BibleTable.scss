@@ -27,7 +27,13 @@ $break-large: 1024px;
     font-family: $noto-serif;
     @include respond-to(handhelds) { font-size: 16px;}
     @include respond-to(medium-screens) { font-size: 16px;}
-    @include respond-to(wide-screens) { font-size: 20px;}
+	@include respond-to(wide-screens) { font-size: 20px;}
+	margin: 50px 0 0 0;
+	
+	.navbar--hidden ~ & {
+		margin: 50px 0;
+		transition: all 0.2s;
+	}
 
 	.bible-table__head {
 		&.bible-table__head--fixed {
@@ -36,8 +42,13 @@ $break-large: 1024px;
 				position: -webkit-sticky;
 				position: sticky;
 				background: white;
-				top: 0;
+				transition: all 0.2s;
+				top: 50px;
 				box-shadow: inset 0 -1px 0 #d0d0d0;
+
+				.navbar--hidden ~ & {
+					top: 0;
+				}
 			}
 		}
 
