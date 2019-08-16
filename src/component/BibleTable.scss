@@ -1,0 +1,72 @@
+$noto-serif: 'Noto Serif KR';
+$noto-sans: 'Noto Sans KR';
+
+$break-small: 320px;
+$break-large: 1024px;
+
+@mixin respond-to($media) {
+	@if $media == mobile {
+		@media only screen and (max-width: $break-small) {
+			@content;
+		}
+	} @else if $media == medium-screens {
+		@media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) {
+			@content;
+		}
+	} @else if $media == wide-screens {
+		@media only screen and (min-width: $break-large) {
+			@content;
+		}
+	}
+}
+
+.bible-table {
+	width: 100%;
+	position: relative;
+	border-collapse: collapse;
+    font-family: $noto-serif;
+    @include respond-to(handhelds) { font-size: 16px;}
+    @include respond-to(medium-screens) { font-size: 16px;}
+    @include respond-to(wide-screens) { font-size: 20px;}
+
+	.bible-table__head {
+		&.bible-table__head--fixed {
+			th {
+				padding: 1rem;
+				position: -webkit-sticky;
+				position: sticky;
+				background: white;
+				top: 0;
+				box-shadow: inset 0 -1px 0 #d0d0d0;
+			}
+		}
+
+		th {
+			&:nth-child(1) {
+				width: 120px;
+			}
+			&:nth-child(2) {
+				width: calc(100% - 120px);
+			}
+		}
+	}
+
+	.bible-table__body {
+		tr {
+			border-bottom: 1px solid #d0d0d0;
+		}
+		tr td {
+			padding: 1rem;
+		}
+
+		.bible-table__body--fit-width {
+			width: 1px;
+			white-space: nowrap;
+			text-align: center;
+		}
+
+		.bible-table__body__content {
+			white-space: pre-line;
+		}
+	}
+}
