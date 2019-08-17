@@ -7,9 +7,9 @@ import BottomNavbar from '../component/BottomNavbar/BottomNavbar';
 const Home = () => {
     return (
         <div>
-            <Navbar />
+            <Navbar position="top" />
             <BibleTable />
-            <BottomNavbar />
+            <Navbar position="bottom"/>
         </div>
     )
 }

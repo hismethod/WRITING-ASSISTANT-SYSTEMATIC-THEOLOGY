@@ -3,6 +3,7 @@ import './BibleTable.scss';
 import data from './../../asset/biblical_theology.json';
 
 function BibleTable() {
+    console.log('render bibletable');
     return (
         <table className="bible-table">
             <thead className="bible-table__head bible-table__head--fixed">
@@ -24,4 +25,4 @@ function BibleTable() {
     )
 }
 
-export default BibleTable
+export default React.memo(BibleTable)
