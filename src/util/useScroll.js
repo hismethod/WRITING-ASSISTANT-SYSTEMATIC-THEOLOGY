@@ -14,7 +14,7 @@ function getScrollPosition({ element, useWindow }) {
     : { x: position.left, y: position.top }
 }
 
-export function useScrollPosition(effect, {depends, element, useWindow, throttleTime}) {
+export function useScrollPosition(effect, depends, { element, useWindow, throttleTime }) {
   const position = useRef(getScrollPosition({ useWindow }));
   useEffect(() => {
     const handleScroll = () => {
