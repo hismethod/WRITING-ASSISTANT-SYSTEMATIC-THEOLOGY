@@ -1,38 +1,29 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import throttle from 'lodash.throttle';
-import debounce from 'lodash.debounce';
+import React, { useState } from 'react';
 import classNames from 'classnames';
+import { useScrollPosition } from './../../util/useScroll';
 import './Navbar.scss';
-// import { useScroll } from './../../util/useScroll';
 
+let count = 0;
 const Navbar = ({ position = 'top' }) => {
-    const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
     const [visible, setVisible] = useState(true);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollPos = window.pageYOffset;
-            const isVisible = prevScrollpos > currentScrollPos;
-
-            setPrevScrollpos(currentScrollPos);
+    useScrollPosition(({ prevPos, currPos }) => {
+        const isVisible = currPos.y < prevPos.y;
+        if (isVisible !== visible) {
             setVisible(isVisible);
-        };
-
-        const throttledHandleScroll = throttle(handleScroll, 1000);
-
-        window.addEventListener("scroll", throttledHandleScroll);
-        return () => { window.removeEventListener("scroll", throttledHandleScroll) }
-    });
+        }
+    }, [], null, true, 200);
 
     const navClassName = classNames('navbar', `navbar-${position}`, {
         [`navbar--hidden`]: !visible
     });
 
+    console.log(`Nav rendered : ${count++}`);
+
     return (
         <nav className={navClassName} >
             <div className="navbar__content">
                 <span>
-                    {prevScrollpos}
                     성경으로 따라가는 조직신학 쓰기
                 </span>
             </div>
@@ -40,4 +31,4 @@ const Navbar = ({ position = 'top' }) => {
     )
 }
 
-export default React.memo(Navbar);
+export default Navbar
