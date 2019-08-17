@@ -12,7 +12,7 @@ const Navbar = ({ position = 'top' }) => {
     if (isVisible !== visible) {
       setVisible(isVisible);
     }
-  }, [visible], { throttleTime: 200 });
+  }, [visible], { throttleTime: 50 });
 
   const navClassName = classNames('navbar', `navbar-${position}`, {
     [`navbar--hidden`]: !visible
