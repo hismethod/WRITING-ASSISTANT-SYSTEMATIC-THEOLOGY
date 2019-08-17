@@ -24,7 +24,7 @@ const Navbar = ({ position = 'top' }) => {
     <nav className={navClassName} >
       <div className="navbar__content">
         <span>
-          성경으로 따라가는 조직신학 쓰기
+          성경을 따라가는 조직신학 쓰기
         </span>
       </div>
     </nav>
