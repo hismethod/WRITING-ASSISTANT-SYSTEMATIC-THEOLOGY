@@ -1,5 +1,4 @@
 .navbar {
-	background-color: white;
 	z-index: 3;
 
 	&.navbar-top {
@@ -7,8 +6,7 @@
 		height: 50px;
 		position: fixed;
 		top: 0;
-		transition: all 0.2s;
-		background-color: white;
+		transition: top 0.2s;
 
 		&.navbar--hidden {
 			top: -50px;
@@ -24,7 +22,6 @@
 			text-align: center;
 			justify-content: center;
 			align-items: center;
-			background-color: white;
 		}
 	}
 
@@ -33,8 +30,7 @@
 		height: 50px;
 		position: fixed;
 		bottom: 0;
-		transition: all 0.2s;
-		background-color: white;
+		transition: bottom 0.2s;
 
 		&.navbar--hidden {
 			bottom: -50px;
@@ -50,7 +46,6 @@
 			text-align: center;
 			justify-content: center;
 			align-items: center;
-			background-color: white;
 
 			ul {
 				width: 100%;

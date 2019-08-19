@@ -1,16 +1,17 @@
 import React from 'react';
 import './Home.scss';
 import BibleTable from '../component/BibleTable/BibleTable';
-import Navbar from '../component/Navbar/Navbar';
+import Topbar from '../system/Topbar/Topbar';
+import Bottombar from '../system/Bottombar/Bottombar';
 
 const Home = () => {
     return (
         <div>
-            <Navbar position="top" />
+            <Topbar />
             <BibleTable />
-            <Navbar position="bottom"/>
+            <Bottombar />
         </div>
     )
 }
 
-export default Home;
+export default Home

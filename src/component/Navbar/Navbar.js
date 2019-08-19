@@ -3,29 +3,22 @@ import classNames from 'classnames';
 import { useScrollPosition } from './../../util/useScroll';
 import './Navbar.scss';
 
-let count = 0;
-const Navbar = ({ position = 'top' }) => {
+const Navbar = ({ position = 'top', children }) => {
   const [visible, setVisible] = useState(true);
 
-  useScrollPosition(({ prevPos, currPos }) => {
-    const isVisible = currPos.y > prevPos.y;
+  useScrollPosition(({ direction }) => {
+    const isVisible = direction === 'up';
     if (isVisible !== visible) {
       setVisible(isVisible);
     }
-  }, [visible], { throttleTime: 50 });
-
-  const navClassName = classNames('navbar', `navbar-${position}`, {
-    [`navbar--hidden`]: !visible
   });
 
-  console.log(`Nav rendered : ${count++}`);
+  const navClassName = classNames('navbar', `navbar-${position}`, {'navbar--hidden': !visible});
 
   return (
     <nav className={navClassName} >
       <div className="navbar__content">
-        <span>
-          성경을 따라가는 조직신학 쓰기
-        </span>
+        {children}
       </div>
     </nav>
   )

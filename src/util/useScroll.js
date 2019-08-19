@@ -14,25 +14,18 @@ function getScrollPosition({ element, useWindow }) {
     : { x: position.left, y: position.top }
 }
 
-export function useScrollPosition(effect, depends, { element, useWindow, throttleTime }) {
+export function useScrollPosition(callback, element = false, useWindow = false) {
   const position = useRef(getScrollPosition({ useWindow }));
   useEffect(() => {
     const handleScroll = () => {
       const currPos = getScrollPosition({ element, useWindow });
-      effect({ prevPos: position.current, currPos });
+      callback({ prevPos: position.current, currPos, direction: currPos.y > position.current.y ? 'up' : 'down' });
       position.current = currPos;
     }
-
+    const throttleTime = 50;
     const throttledHandleScroll = throttle(handleScroll, throttleTime);
 
     window.addEventListener('scroll', throttledHandleScroll);
     return () => window.removeEventListener('scroll', throttledHandleScroll);
-  }, [effect, element, throttleTime, useWindow]);
-}
-
-useScrollPosition.defaultProps = {
-  depends: [],
-  element: false,
-  useWindow: false,
-  throttleTime: null,
+  }, [callback, element, useWindow]);
 }

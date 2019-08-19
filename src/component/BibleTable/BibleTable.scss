@@ -24,28 +24,32 @@ $break-large: 1024px;
 	width: 100%;
 	position: relative;
 	border-collapse: collapse;
-    font-family: $noto-serif;
-    @include respond-to(handhelds) { font-size: 16px;}
-    @include respond-to(medium-screens) { font-size: 16px;}
-	@include respond-to(wide-screens) { font-size: 20px;}
+	font-family: $noto-serif;
+	@include respond-to(handhelds) {
+		font-size: 16px;
+	}
+	@include respond-to(medium-screens) {
+		font-size: 16px;
+	}
+	@include respond-to(wide-screens) {
+		font-size: 20px;
+	}
 	margin: 50px 0 0 0;
-	
+
 	.navbar--hidden ~ & {
 		margin: 50px 0;
-		transition: all 0.2s;
 	}
 
 	.bible-table__head {
 		&.bible-table__head--fixed {
 			th {
-				padding: 1rem;
 				position: -webkit-sticky;
 				position: sticky;
-				background: white;
-				transition: all 0.2s;
 				top: 50px;
+				padding: 1rem;
+				background-color: white;
 				box-shadow: inset 0 -1px 0 #d0d0d0;
-
+				transition: top 0.2s;
 				.navbar--hidden ~ & {
 					top: 0;
 				}
@@ -55,9 +59,11 @@ $break-large: 1024px;
 		th {
 			&:nth-child(1) {
 				width: 120px;
+				border-bottom-left-radius: 15px;
 			}
 			&:nth-child(2) {
 				width: calc(100% - 120px);
+				border-bottom-right-radius: 15px;
 			}
 		}
 	}
