@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import throttle from 'lodash.throttle';
 
-const isBrowser = typeof window !== `undefined`;
+const isBrowser = typeof window !== 'undefined';
 
 function getScrollPosition({ element, useWindow }) {
   if (!isBrowser) return { x: 0, y: 0 }
