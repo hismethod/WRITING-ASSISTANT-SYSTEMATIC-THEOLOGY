@@ -5,12 +5,11 @@ import './Navbar.scss';
 
 const Navbar = ({ position = 'top', children }) => {
   const [visible, setVisible] = useState(true);
-  const bodyHeight = document.body.offsetHeight;
-  const bodyTop = 0;
   
   useScrollPosition(({ prevPos, currPos, direction }) => {
-    const nearTop = currPos.y > bodyTop;
-    const nearBottom = currPos.y < -4300;
+    const nearTop = currPos.y >= document.body.offsetTop;
+    const nearBottom = document.body.offsetHeight <= (currPos.y * -1) + window.innerHeight;
+
     const showNavbar = nearTop || nearBottom || (direction === 'up');
     if (showNavbar !== visible) {
       setVisible(showNavbar);

@@ -34,7 +34,7 @@ $break-large: 1024px;
 	@include respond-to(wide-screens) {
 		font-size: 20px;
 	}
-	margin: 50px 0 0 0;
+	margin: 50px 0;
 
 	.navbar--hidden ~ & {
 		margin: 50px 0;
