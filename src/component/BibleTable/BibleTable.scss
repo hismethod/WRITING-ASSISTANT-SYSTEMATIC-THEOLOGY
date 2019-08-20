@@ -25,6 +25,7 @@ $break-large: 1024px;
 	position: relative;
 	border-collapse: collapse;
 	font-family: $noto-serif;
+	cursor: default;
 	@include respond-to(handhelds) {
 		font-size: 16px;
 	}
@@ -60,9 +61,11 @@ $break-large: 1024px;
 			&:nth-child(1) {
 				width: 120px;
 				border-bottom-left-radius: 15px;
+				border-bottom-right-radius: 15px;
 			}
 			&:nth-child(2) {
 				width: calc(100% - 120px);
+				border-bottom-left-radius: 15px;
 				border-bottom-right-radius: 15px;
 			}
 		}

@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route } from "react-router-dom";
 import './App.scss';
-import { Home } from './page';
-
-const App = () => {
+import { Home, Single } from './page';
+import { observer } from 'mobx-react';
+import { useAppStore } from './hooks/useAppStore';
+const App = observer(() => {
   return (
-    <div className="App">
-      <Route path="/" component={Home} />
-    </div>
+      <div className="App">
+        <Route exact path="/" component={Home} />
+        <Route path="/single" component={Single}/>
+      </div>
   )
-}
+});
 
 export default App;
