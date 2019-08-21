@@ -6,7 +6,7 @@ const AppStore = () => {
         viewMode: 'list',
         toggleViewMode() {
             if (this.viewMode === 'list') {
-                this.viewMode = 'single';
+                this.viewMode = 'viewer';
             } else {
                 this.viewMode = 'list';
             }

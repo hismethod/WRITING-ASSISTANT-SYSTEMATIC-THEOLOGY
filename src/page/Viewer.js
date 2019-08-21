@@ -1,7 +1,7 @@
 import React from 'react';
-import './Single.scss';
+import './Viewer.scss';
 
-const Single = ({ store }) => {
+const Viewer = ({ store }) => {
     return (
         <div>
             {store}
@@ -9,4 +9,4 @@ const Single = ({ store }) => {
     )
 }
 
-export default Single
+export default Viewer

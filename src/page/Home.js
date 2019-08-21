@@ -3,17 +3,15 @@ import './Home.scss';
 import BibleTable from '../component/BibleTable/BibleTable';
 import Topbar from '../system/Topbar/Topbar';
 import Bottombar from '../system/Bottombar/Bottombar';
-import { observer } from 'mobx-react';
-import { useAppStore } from '../hooks/useAppStore';
-const Home = observer(() => {
-    const appStore = useAppStore();
+
+const Home = ({match}) => {
     return (
         <div>
             <Topbar />
-            <BibleTable viewMode={appStore.viewMode} store={appStore}/>
+            <BibleTable book={`${match.params.book}`} />
             <Bottombar />
         </div>
     )
-})
+}
 
 export default Home

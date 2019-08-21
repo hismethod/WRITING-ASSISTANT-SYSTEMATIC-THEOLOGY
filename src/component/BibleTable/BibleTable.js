@@ -1,11 +1,17 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './BibleTable.scss';
-import data from './../../asset/biblical_theology.json';
+import { useAppStore } from '../../hooks/useAppStore';
+import { useBibleData } from '../../hooks/useBibleData';
 
-const BibleTable = ({store}) => {
-    const onHandleClick = useCallback(() => {
+const BibleTable = ({book = '1'}) => {
+    console.log(book);
+    const store = useAppStore();
+    const bibleData = useBibleData(book);
+
+    const onHandleDoubleClick = useCallback(() => {
         store.toggleViewMode();
     });
+
     return (
         <table className="bible-table">
             <thead className="bible-table__head bible-table__head--fixed">
@@ -16,12 +22,12 @@ const BibleTable = ({store}) => {
             </thead>
             <tbody className="bible-table__body">
                 {
-                    data.map((verse, i) => (
+                    bibleData ? bibleData.map((verse, i) => (
                     <tr key={verse.id}>
                         <td className="bible-table__body--fit-width">{verse.part}</td>
-                        <td className="bible-table__body__content" onClick={onHandleClick}>{verse.content}</td>
+                        <td className="bible-table__body__content" onDoubleClick={onHandleDoubleClick}>{verse.content}</td>
                     </tr>
-                ))}
+                )) : null}
             </tbody>
         </table>
     )
