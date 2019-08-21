@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import { useScrollPosition } from '../../hooks/useScroll';
 import './Navbar.scss';
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 import { useAppStore } from '../../hooks/useAppStore';
 
 const Navbar = ({ position = 'top', children }) => {

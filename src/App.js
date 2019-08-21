@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Route } from "react-router-dom";
 import './App.scss';
 import { Home, Viewer } from './page';
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 import { useAppStore } from './hooks/useAppStore';
 const App = () => {
   return (
