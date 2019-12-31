@@ -7,7 +7,7 @@ import { useAppStore } from './hooks/useAppStore';
 const App = () => {
   return (
       <div className="App">
-        <Route path="/:book" component={Home} />
+        <Route path="/:book?" component={Home} />
         <Route path="/list/:book" component={Home} />
         <Route path="/viewer" component={Viewer}/>
       </div>

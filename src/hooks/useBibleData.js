@@ -8,7 +8,7 @@ export function useBibleData (book) {
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await fetch(`data/${book}.txt`)
+            const data = await fetch(`data/${book}.data`)
             .then(res => res.text())
             .then(cryptText => cryptor.decode(cryptText));
     

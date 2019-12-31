@@ -16,7 +16,6 @@ const Navbar = ({ position = 'top', children }) => {
     if (showNavbar !== visible) {
       setVisible(showNavbar);
     }
-    console.log(store.currentViewMode);
   });
   const navClassName = classNames('navbar', `navbar-${position}`, {'navbar--hidden': !visible});
   return (
